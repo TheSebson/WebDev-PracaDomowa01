@@ -1,0 +1,19 @@
+@model webdev.Models.URL
+<div>
+    <table>
+        <tr>
+            <td><strong>@Html.DisplayNameFor(model => Model.Address):</strong></td>
+            <td>@Html.DisplayFor(model => Model.Address),</td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    @using (Html.BeginForm("Update", "URL", FormMethod.Post))
+    {
+        <input type="text" name="Address" placeholder="Address"/> <br/>
+        @Html.HiddenFor(model => Model.Id)
+        <button type="submit">Zmień</button>
+    }
+</div>
+     

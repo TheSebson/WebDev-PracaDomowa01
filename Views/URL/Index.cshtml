@@ -1,0 +1,23 @@
+@model List<webdev.Models.URL>
+<div>
+    @using (Html.BeginForm("Create", "URL", FormMethod.Post))
+    {
+        
+        <input type="text" name="Address" placeholder="Address"/> <br/>
+        <button type="submit">Dodaj</button>
+    }
+</div>  
+<div>
+    <table>
+        @foreach(var item in Model) {
+            <tr>
+                <td><strong>@Html.DisplayNameFor(model => item.Address):</strong></td>
+                <td>@Html.DisplayFor(model => item.Address),</td>
+                <td>|| @Html.ActionLink(item.HideAddress, "SendToURL", "Link", new { address=item.Address }, new  {target="_blank" })</td>
+                <td>| @Html.ActionLink("Usuń", "Delete", "URL", item)</td>
+                <td>| @Html.ActionLink("Zmień", "Edit", "URL", item)</td>
+               
+            </tr>
+        }
+    </table>
+</div>
